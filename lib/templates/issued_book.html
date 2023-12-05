@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issued books to student</title>
+</head>
+<body>
+    <h1 align="center">Issued Books</h1>
+    <table border="2" align="center">
+    <tr>  
+        <th>sr.no</th>
+        <th>Student name</th>
+        <!-- <th>student id</th> -->
+        <th>Book name</th>
+        <th>Issue_date</th>
+        <th>delete</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <td>{{x.id}}</td>
+        <td>{{x.Student_name}}</td>
+        <!-- <td>{{x.student_id}}</td> -->
+        <td>{{x.book_name}}</td>
+        <td>{{x.issued_date}}</td>
+        <td><a href="/delete1/{{x.id}}">delete</a></td>
+
+    </tr>
+    {% endfor %}
+    </table><br>
+    <a href="/admn" align="center">Back</a>
+
+</body>
+</html>

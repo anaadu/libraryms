@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin section</title>
+</head>
+<body>
+   {% block 'main' %}
+    <h2>Admin Book section</h2>
+    <p><a href="/addbook">Add Book</a></p>
+    <p><a href="/issuebook">Issuebook</a></p>
+    <p><a href="/issuedbook">Issued books list</a></p>
+    <table border="1">
+        <tr>
+            <th>Sr.No</th>
+            <th>Book Name</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        
+        {% for x in data %}
+        <tr>
+
+            <td>{{x.id}}</td>
+            <td>{{x.name}}</td>
+            {% if x.cat == '1' %}
+               <td>Fantacy</td>
+            {% elif x.cat == '2' %} 
+               <td>Adventure</td>
+            {% elif x.cat == '3' %}  
+               <td>Historical</td>
+            {% elif x.cat == '4' %}
+               <td>Horror</td>
+            {% else %}
+               <td>Triller</td>
+            {% endif %}
+
+            <td>{{x.author}}</td>
+            <td>{{x.price}}</td>
+
+            {% if x.status == '1' %}
+               <td>Available</td>
+            {% else %}
+               <td>Not-Available</td>
+            {% endif %}
+
+            <td><a href="/edit/{{x.id}}">edit</a></td>
+            <td><a href="/delete/{{x.id}}">delete</a></td>
+
+
+
+
+
+        </tr>
+        {% endfor %}
+
+       
+
+
+
+        
+
+
+
+    </table>
+    <div>
+      <h2>Filter by Status</h2>
+      <p><a href="/admn">all</a></p>
+      <p><a href="/statfilter/1">Available</a></p>
+      <p><a href="/statfilter/0">Not-Avialable</a></p>
+    </div>
+    <div>
+      <h2>Filter by Category</h2>
+      <p><a href="/admn">All</a></p>
+      <p><a href="/catfilter/1">Fantacy</a></p>
+      <p><a href="/catfilter/2">Adventure</a></p>
+      <p><a href="/catfilter/3">Historical</a></p>
+      <p><a href="/catfilter/4">Horror</a></p>
+      <p><a href="/catfilter/5">Triller</a></p>
+    </div>
+
+    <div>
+      <h2>Sort by price</h2>
+      <p><a href="/admn">All</a></p>
+      <p><a href="/sort/1">high to low</a></p>
+      <p><a href="/sort/0">low to high</a></p>
+    </div>
+
+
+
+
+
+   {% endblock 'main' %}
+    
+</body>
+</html>

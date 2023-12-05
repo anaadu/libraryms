@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Section</title>
+</head>
+<body>
+    <h1>Edit Section</h1>
+    <hr>
+    {% for x in data %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Book name:</th>
+                <td><input type="text" name="bname" value="{{x.name}}"></td>
+            </tr>
+            <tr>
+                <th>category:</th>
+                <td>
+                    <select name="cat" >
+                        {% if x.cat == '1' %}
+                        <option value="1">Fantacy</option>
+                        {% elif x.cat == '2' %}
+                        <option value="2">Adventure</option>
+                        {% elif x.cat == '3' %}
+                        <option value="3">Historical</option>
+                        {% elif x.cat == '4' %}
+                        <option value="4">Horror</option>
+                        {% else %}
+                        <option value="5">Triller</option>
+                        {% endif %}
+
+                        <option value="1">Fantacy</option>
+                        <option value="2">Adventure</option>
+                        <option value="3">Historical</option>
+                        <option value="4">Horror</option>
+                        <option value="5">Triller</option>
+
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Author:</th>
+                <td><input type="text" name="author" value="{{x.author}}"></td>
+
+
+            </tr>
+            <tr>
+                <th>Price:</th>
+                <td><input type="number" name="amt" value="{{x.price}}"></td>
+
+
+
+            </tr>
+            <tr>
+                <th>Status:</th>
+
+                <td>
+                    {% if x.status == '1' %}
+                    <input type="radio" name="status" value="1" checked>available
+                    <input type="radio" name="status" value="0">not-available
+                    {% else %}
+                    <input type="radio" name="status" value="1">available
+                    <input type="radio" name="status" value="0" checked>not-available
+                    {% endif %}
+
+            
+            
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit">Save</button></td>
+            </tr>
+
+
+
+
+
+        </table>
+
+
+    </form>
+    {% endfor %}
+</body>
+</html>
