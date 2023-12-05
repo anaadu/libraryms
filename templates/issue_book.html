@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuebook to students</title>
+</head>
+<body>
+    <h1>Issuebook to students</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Student name:</th>
+                <td><input type="text" name="sname"></td>
+            </tr>
+            <!-- <tr>
+                <th>Student Id:</th>
+                <td><input type="number" name="sid"></td>
+            </tr> -->
+            <tr>
+                <th>Book_name:</th>
+                <td><input type="text" name="bname"></td>
+
+            </tr>
+            <tr>
+                <th>Issue_date</th>
+                <td><input type="date" name="idate"></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2"><input type="submit" value="Save"></td>
+            </tr>
+            
+
+
+
+        </table>
+
+
+    </form>
+    
+</body>
+</html>
